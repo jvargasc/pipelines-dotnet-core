@@ -37,6 +37,8 @@ steps:
     #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     Package: $(System.ArtifactsDirectory)/**/*.zip
 
+- task: PublishBuildArtifacts@1
+
 #- task: AzureRmWebAppDeployment@3
 #  inputs:
 #    azureSubscription: '<Azure service connection>'

@@ -26,3 +26,19 @@ steps:
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
+
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'connection-to-northwindWebRg'
+    appType: 'webApp'
+    WebAppName: 'pipelines-dotnetjv'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+
+#- task: AzureRmWebAppDeployment@3
+#  inputs:
+#    azureSubscription: '<Azure service connection>'
+#    WebAppName: '<Name of web app>'
+#    Package: $(System.ArtifactsDirectory)/**/*.zip

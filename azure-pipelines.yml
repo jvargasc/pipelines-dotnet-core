@@ -27,6 +27,7 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
 
+- task: PublishBuildArtifacts@1
 
 - task: AzureRmWebAppDeployment@4
   inputs:
@@ -37,10 +38,13 @@ steps:
     #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     Package: $(System.ArtifactsDirectory)/**/*.zip
 
-- task: PublishBuildArtifacts@1
+
 
 #- task: AzureRmWebAppDeployment@3
 #  inputs:
 #    azureSubscription: '<Azure service connection>'
 #    WebAppName: '<Name of web app>'
 #    Package: $(System.ArtifactsDirectory)/**/*.zip
+
+
+

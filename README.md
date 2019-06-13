@@ -1,3 +1,5 @@
+[![Build Status](https://jvargasc.visualstudio.com/pipelines-dotnet/_apis/build/status/jvargasc.pipelines-dotnet-core?branchName=master)](https://jvargasc.visualstudio.com/pipelines-dotnet/_build/latest?definitionId=16&branchName=master)
+
 # Sample ASP.NET Core application for Azure Pipelines docs
 
 For information on how to set up a pipeline for this repository, see [Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=azure-devops).

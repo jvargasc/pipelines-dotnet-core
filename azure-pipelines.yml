@@ -39,12 +39,10 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
+    PathtoPublish: '$(build.ArtifactsDirectory)'
 
 #- task: AzureRmWebAppDeployment@3
 #  inputs:
 #    azureSubscription: '<Azure service connection>'
 #    WebAppName: '<Name of web app>'
 #    Package: $(System.ArtifactsDirectory)/**/*.zip
-
-

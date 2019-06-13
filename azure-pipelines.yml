@@ -17,15 +17,6 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 
 #steps:
-# ...
-# do this after you've built your app, near the end of your pipeline in most cases
-# for example, you do this before you deploy to an Azure web app on Windows
-- task: DotNetCoreCLI@2
-  inputs:
-    command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
 
 - task: AzureRmWebAppDeployment@4
   inputs:
@@ -35,13 +26,17 @@ steps:
     WebAppName: 'pipelines-dotnetjv'
     #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     Package: $(System.ArtifactsDirectory)/**/*.zip
-
-- task: ArchiveFiles@2
-  displayName: 'Archive files'
+    
+# ...
+# do this after you've built your app, near the end of your pipeline in most cases
+# for example, you do this before you deploy to an Azure web app on Windows
+- task: DotNetCoreCLI@2
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-    includeRootFolder: true
-
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
+    
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   inputs:

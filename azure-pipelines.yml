@@ -35,7 +35,7 @@ steps:
     #appType: 'webApp'
     WebAppName: 'pipelines-dotnetjv'
     #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    Package: $(System.ArtifactStagingDirectory)/**/*.zip
+    Package: $(System.ArtifactsDirectory)/**/*.zip
 
 - task: PublishBuildArtifacts@1
 

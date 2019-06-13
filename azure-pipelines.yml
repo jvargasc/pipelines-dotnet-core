@@ -34,8 +34,8 @@ steps:
     azureSubscription: 'connection-to-northwindWebRg'
     #appType: 'webApp'
     WebAppName: 'pipelines-dotnetjv'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    #Package: $(System.ArtifactStagingDirectory)/**/*.zip
+    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    Package: $(System.DefaultWorkingDirectory)/**/*.zip
 
 - task: PublishBuildArtifacts@1
 

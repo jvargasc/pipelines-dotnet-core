@@ -40,6 +40,7 @@ steps:
   displayName: 'Publish Artifact: drop'
   inputs:
     PathtoPublish: '$(build.ArtifactStagingDirectory)'
+    artifactName: 'pipelines-dotnetjv'
 
 #- task: AzureRmWebAppDeployment@3
 #  inputs:
